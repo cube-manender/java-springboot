@@ -1,0 +1,23 @@
+type User {
+    id: Int!
+    firstName: String!
+    lastName: String!
+    userProfile: UserProfile
+    orders: [Order]
+}
+
+type UserProfile {
+    id: Int!
+    userId: Int!
+}
+
+type Order {
+    id: Int!
+    orderDetails: String!
+    userId: Int!
+}
+
+type Query {
+    getAllUsers: [User]
+    getUserById(id:Int):User
+}
