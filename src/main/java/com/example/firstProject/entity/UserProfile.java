@@ -1,4 +1,5 @@
 package com.example.firstProject.entity;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -15,5 +16,6 @@ public class UserProfile {
     private String phoneNumber;
     @OneToOne
     @JoinColumn(name = "user_id", referencedColumnName = "id")
+    @JsonIgnore
     private User user;
 }
