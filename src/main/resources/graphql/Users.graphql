@@ -1,23 +1,43 @@
+type Query {
+    getUser(id: Int!): User
+    getAllUsers: [User]
+}
+
+type Mutation {
+    createUser(userInput: UserInput): User
+}
+
 type User {
-    id: Int!
-    firstName: String!
-    lastName: String!
+    id: Int
+    firstName: String
+    lastName: String
     userProfile: UserProfile
     orders: [Order]
 }
 
 type UserProfile {
-    id: Int!
-    userId: Int!
+    id: Int
+    address: String
+    phoneNumber: String
 }
 
 type Order {
-    id: Int!
-    orderDetails: String!
-    userId: Int!
+    id: Int
+    orderDetails: String
 }
 
-type Query {
-    getAllUsers: [User]
-    getUserById(id:Int):User
+input UserInput {
+    firstName: String
+    lastName: String
+    userProfile: UserProfileInput
+    orders: [OrderInput]
+}
+
+input UserProfileInput {
+    address: String
+    phoneNumber: String
+}
+
+input OrderInput {
+    orderDetails: String
 }
